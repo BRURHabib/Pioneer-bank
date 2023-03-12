@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div class="login-area">
+    <div id="login-area">
         <h1 class="text-center">Welcome to Pioneer Bank</h1>
         <div class="submit-area">
             <h4>Log in</h4>
@@ -19,13 +19,19 @@
             <br>
             <button id="login" class="btn btn-success">Enter</button>
         </div>
+    </div>
 
+    <div id="transaction-window">
+        <h1>Transaction window</h1>
     </div>
 
     <script>
         const loginBtn = document.getElementById("login");
         loginBtn.addEventListener("click", function(){
-            console.log("Clicked");
+            const transactionWindow = document.getElementById("transaction-window");
+            transactionWindow.style.display = "block";
+            const loginArea = document.getElementById("login-area");
+            loginArea.style.display = "none";
         })
     </script>
 </body>
