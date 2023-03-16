@@ -73,32 +73,24 @@
         const btnDeposit = document.getElementById("deposit");
         btnDeposit.addEventListener("click", function(){
             const depositAmount = updateValueText("deposit-input");
-
             updateSpanText("currentDeposit", depositAmount);
             updateSpanText("balance", depositAmount);
 
             document.getElementById("deposit-input").value = "";
         })
-
         function updateSpanText(id, depositAmount){
                 const current = document.getElementById(id).innerText;
                 const currentNumber = parseFloat(current);
                 const total = currentNumber + depositAmount;
                 document.getElementById(id).innerText = total;
         }
-
         const btnWithdraw = document.getElementById("withdraw");
         btnWithdraw.addEventListener("click", function(){
             const inputWithdrawAmount = updateValueText("withdraw-input");
 
-            const currentWithdrawAmount = updateInnerText("currentWithdraw");
-            const totalWithdraw = currentWithdrawAmount + inputWithdrawAmount;
-            document.getElementById("currentWithdraw").innerText = totalWithdraw;
+            updateSpanText("currentWithdraw", inputWithdrawAmount);
+            updateSpanText("balance", -1*inputWithdrawAmount);
             document.getElementById("withdraw-input").value = "";
-
-            const balanceAmount = updateInnerText("balance");
-            const totalBalance = balanceAmount - inputWithdrawAmount;
-            document.getElementById("balance").innerText = totalBalance;
         })
 
         function updateValueText(Value){
@@ -106,13 +98,6 @@
             const updateValueFloat = parseFloat(updateValue);
             return updateValueFloat;
         }
-
-        function updateInnerText(innerId){
-            const innerValue = document.getElementById(innerId).innerText;
-            const innerValueFloat = parseFloat(innerValue);
-            return innerValueFloat;
-        }
     </script>
 </body>
-
 </html>
